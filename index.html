@@ -1,1 +1,174 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>내 시간에 맞는 다음 스텝! (3학년 6차시 · 2교시)</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+:root{--page:#eceaf3;--bar:#fff;--bar-text:#2b3a4a;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--page:#1d1c26;--bar:#2a2936;--bar-text:#e8e8f0}}
+:root[data-theme="dark"]{--page:#1d1c26;--bar:#2a2936;--bar-text:#e8e8f0}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--page);font-family:"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;color:#2b3a4a}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;display:flex;gap:8px;justify-content:center;align-items:center;padding:10px;background:var(--bar);box-shadow:0 1px 6px #0002}
+.bar button{font:inherit;font-weight:700;border:0;border-radius:999px;padding:10px 18px;cursor:pointer;background:#2a8c8c;color:#fff}
+.bar button.sub{background:#e4e1f2;color:#3b3560}
+.wrap{padding:14px;display:flex;justify-content:center;overflow-x:hidden}
+#sheet{width:760px;flex:none;background:#fffdf7;padding:30px 36px 22px;position:relative}
+.head{background:#e8e3fb;border-radius:28px;padding:24px 28px 20px;position:relative;min-height:190px}
+.tag{display:inline-block;background:#fff;color:#16757a;font-weight:500;font-size:14px;padding:5px 14px;border-radius:999px}
+.head h1{margin:10px 0 6px;font-size:44px;line-height:1.15;font-weight:700;background:linear-gradient(transparent 62%,#fbdde7 62%,#fbdde7 90%,transparent 90%);display:inline-block}
+.head p{margin:0;color:#5b6573;font-size:15px}
+.pic{position:absolute;right:30px;top:-6px;width:170px;height:170px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;font-size:96px}
+.sp{position:absolute;color:#333;font-size:26px}
+.meta{display:flex;gap:22px;font-size:14px;color:#556;margin:12px 4px 8px;align-items:flex-end}
+.meta label{display:flex;align-items:flex-end;gap:4px}
+.meta input{width:62px}.meta .nm{width:130px}
+input[type=text]{font:inherit;border:0;border-bottom:1.5px solid #cfd3d8;background:transparent;outline:0;padding:2px 4px;color:#222;min-width:0}
+input[type=text]:focus{border-bottom-color:#2a8c8c}
+h2{display:flex;align-items:center;gap:10px;margin:22px 0 8px;font-size:25px;font-weight:700}
+.num{width:38px;height:38px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:20px;font-weight:500;border:2px solid;flex:none}
+.n1{background:#fbdde7;border-color:#f3b4c8}.n2{background:#d7ecfb;border-color:#9fcdee}.n3{background:#dff0d6;border-color:#a9d596}.n4{background:#e8e3fb;border-color:#c3b8ee}
+.sub-t{font-size:14px;color:#667;margin:-6px 0 6px 48px}
+.flow{display:flex;align-items:center;gap:8px;margin-top:6px}
+.step{flex:1;border-radius:14px;border:2px solid;padding:10px 14px;display:flex;gap:10px;align-items:center}
+.step .ic{font-size:30px}.step small{display:block;font-size:14px;color:#667}.step b{font-size:32px;font-weight:500}
+.s1{background:#fbdde7;border-color:#f3b4c8}.s2{background:#d7ecfb;border-color:#9fcdee}.s3{background:#fdeebb;border-color:#f0cf6c}.s4{background:#e8e3fb;border-color:#c3b8ee}
+.arr{color:#667;font-size:22px}
+.chip{float:right;background:#fbdde7;color:#555;font-size:13px;padding:5px 16px;border-radius:999px;margin-bottom:6px}
+.row{display:flex;align-items:flex-end;gap:12px;margin:14px 4px 0;font-size:17px}
+.row>span{flex:none}.row input.f{flex:1}
+.ans{border:2px solid #f3b4c8;border-radius:14px;padding:8px 14px;background:#fff;flex:none;font-size:17px;display:flex;align-items:flex-end;gap:2px}
+.ans input{width:56px;text-align:center}
+.cbs{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.cbs.blue{background:#dcecfb;border-radius:12px;padding:12px 16px;justify-content:space-between;font-size:16px}
+.cbs.green .cb{background:#e3f1dc;border-radius:12px;padding:12px 16px;flex:1;font-size:17px}
+.cb{display:flex;align-items:center;gap:7px;cursor:pointer;user-select:none}
+.box{width:15px;height:15px;border:1.5px solid #556;border-radius:3px;background:#fff;flex:none;display:inline-block;position:relative}
+.cb.on .box{background:#2a8c8c;border-color:#2a8c8c}
+.cb.on .box::after{content:"";position:absolute;left:4px;top:0;width:4px;height:9px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg)}
+.row.where{align-items:center;font-size:17px}
+.row.where .cb{font-size:15px;gap:6px}
+.oth{width:70px}
+.final{background:#fbdde7;border-radius:20px;padding:14px 22px;margin-top:8px;font-size:18px;line-height:2.4}
+.final input{border-bottom-color:#444;text-align:center}
+.foot{display:flex;justify-content:space-between;margin-top:14px;font-size:14px;color:#667}
+.foot b{color:#16757a;font-weight:500}
+.mod{position:fixed;inset:0;background:#000b;display:none;z-index:9;overflow:auto;padding:16px;text-align:center;color:#fff}
+.mod.show{display:block}.mod img{max-width:100%;border-radius:8px;background:#fff}
+.mod button{margin:10px;font:inherit;padding:10px 20px;border-radius:999px;border:0;font-weight:700}
+.snap .cb{cursor:default}
+</style>
+</head>
+<body>
+<div class="bar">
+  <button id="save">🖼️ 이미지로 저장</button>
+  <button class="sub" id="reset">처음부터 다시</button>
+</div>
+<div class="wrap"><div id="zoomer">
+<div id="sheet">
+  <div class="head">
+    <span class="tag">3학년 6차시 · 2교시</span>
+    <h1>내 시간에 맞는<br>다음 스텝!</h1>
+    <p>내게 맞는 길과 확인할 질문 정하기</p>
+    <span class="sp" style="right:24px;top:10px">✦</span>
+    <span class="sp" style="right:225px;top:44px;font-size:22px">✦</span>
+    <span class="sp" style="right:30px;top:158px;font-size:20px">✦</span>
+    <div class="pic">👩‍🎓</div>
+  </div>
+  <div class="meta"><span>전주여자상업고등학교</span><span style="margin-left:50px">2026.10.7</span>
+    <label>반 <input type="text" style="width:60px"></label><label>번호 <input type="text" style="width:50px"></label><label>이름 <input type="text" class="nm"></label></div>
 
+  <h2><span class="num n1">01</span>퇴근 후 수업, 시간도 확인해요</h2>
+  <span class="chip">가상 상황 · 순서대로</span>
+  <div class="flow" style="clear:both">
+    <div class="step s1"><span class="ic">💼</span><div><small>퇴근</small><b>18:00</b></div></div><span class="arr">→</span>
+    <div class="step s2"><span class="ic">🚌</span><div><small>이동</small><b>60분</b></div></div><span class="arr">→</span>
+    <div class="step s3"><span class="ic">🍴</span><div><small>식사</small><b>30분</b></div></div><span class="arr">→</span>
+    <div class="step s4"><span class="ic">📖</span><div><small>수업</small><b>19:00</b></div></div>
+  </div>
+  <div class="row"><span>이동과 식사를 차례로 한다면, 준비 완료 시각은?</span><span style="flex:1"></span>
+    <div class="ans"><input type="text" inputmode="numeric"> 시 <input type="text" inputmode="numeric"> 분</div></div>
+  <div class="row"><span>시간이 맞지 않을 때 먼저 확인할 것</span><input type="text" class="f"></div>
+
+  <h2><span class="num n2">02</span>두 길을 비교하는 확인 미션</h2>
+  <div class="sub-t">AI 사용: 답 읽기 / AI 미사용: 슬라이드 5·6 읽기</div>
+  <div class="row"><span>차이 한 가지</span><input type="text" class="f"></div>
+  <div class="row"><span>확인할 질문</span><input type="text" class="f"></div>
+  <div class="cbs blue">
+    <div class="cb"><i class="box"></i>이해했나요?</div>
+    <div class="cb"><i class="box"></i>학교별 조건을 단정하지 않았나요?</div>
+    <div class="cb"><i class="box"></i>공식 확인은 어디서?</div>
+  </div>
+
+  <h2><span class="num n3">03</span>내가 더 알아볼 길 하나</h2>
+  <div class="cbs green" style="margin-top:0">
+    <div class="cb"><i class="box"></i>재직자 전형</div>
+    <div class="cb"><i class="box"></i>방송대·사이버대</div>
+    <div class="cb"><i class="box"></i>학점은행제</div>
+    <div class="cb"><i class="box"></i>직무교육·자격</div>
+  </div>
+  <div class="row"><span>아직 고르기 어렵다면, 먼저 확인할 조건</span><input type="text" class="f"></div>
+  <div class="row"><span>고른 이유</span><input type="text" class="f"></div>
+  <div class="row"><span>아직 확인해야 할 질문</span><input type="text" class="f"></div>
+  <div class="row where"><span>확인할 곳</span><span style="flex:1"></span>
+    <div class="cb"><i class="box"></i>대학 입학처</div><div class="cb"><i class="box"></i>대학 학사 안내</div>
+    <div class="cb"><i class="box"></i>학점은행제 공식 안내</div><div class="cb"><i class="box"></i>기타</div>
+    <input type="text" class="oth"></div>
+
+  <h2><span class="num n4">04</span>오늘의 한 문장</h2>
+  <div class="final">
+    나는 <input type="text" style="width:190px">을(를) 더 알아보고 싶다.<br>
+    이유는 <input type="text" style="width:170px">. 먼저 <input type="text" style="width:190px">을 확인하겠다.
+  </div>
+  <div class="foot"><span>오늘의 선택은 잠정적이에요. 새로운 정보를 알게 되면 바꾸어도 괜찮아요.</span><b>02</b></div>
+</div>
+</div></div>
+
+<div class="mod" id="mod">
+  <p id="modMsg">이미지를 길게 눌러(또는 우클릭) 저장하세요.</p>
+  <img id="out" alt="완성된 활동지">
+  <div><button onclick="document.getElementById('mod').classList.remove('show')">닫기</button></div>
+</div>
+
+<script>
+const sheet=document.getElementById('sheet'),zoomer=document.getElementById('zoomer');
+function fit(){const w=document.documentElement.clientWidth-28;zoomer.style.zoom=Math.min(1,w/760)}
+fit();addEventListener('resize',fit);
+sheet.querySelectorAll('.cb').forEach(c=>c.addEventListener('click',()=>c.classList.toggle('on')));
+document.getElementById('reset').onclick=()=>{
+  if(!confirm('입력한 내용을 모두 지울까요?'))return;
+  sheet.querySelectorAll('input').forEach(i=>i.value='');
+  sheet.querySelectorAll('.cb').forEach(c=>c.classList.remove('on'));
+};
+const btn=document.getElementById('save');
+btn.onclick=async()=>{
+  if(typeof html2canvas==='undefined'){alert('이미지 도구를 불러오지 못했어요. 인터넷 연결을 확인해 주세요.');return}
+  btn.disabled=true;btn.textContent='만드는 중…';
+  const prev=zoomer.style.zoom;zoomer.style.zoom='1';
+  try{
+    if(document.fonts&&document.fonts.ready)await document.fonts.ready;
+    const canvas=await html2canvas(sheet,{scale:2,backgroundColor:'#fffdf7',useCORS:true,
+      onclone:(doc)=>{doc.querySelectorAll('input').forEach(i=>{
+        const s=doc.createElement('span');s.textContent=i.value;
+        const cs=getComputedStyle(i);
+        s.style.cssText='display:inline-block;min-height:1.5em;line-height:1.5;text-align:'+cs.textAlign+';width:'+i.offsetWidth+'px;border-bottom:'+cs.borderBottom+';padding:2px 4px;white-space:nowrap;overflow:hidden;vertical-align:bottom';
+        i.replaceWith(s);});}});
+    zoomer.style.zoom=prev;
+    const blob=await new Promise(r=>canvas.toBlob(r,'image/png'));
+    const name='3학년2교시_내시간에맞는다음스텝.png';
+    let saved=false;
+    try{
+      const dl=window.claude&&await claude.use('downloads');
+      if(dl){await dl.save({filename:name,data:blob});saved=true}
+    }catch(e){}
+    if(!saved){document.getElementById('out').src=canvas.toDataURL('image/png');document.getElementById('mod').classList.add('show')}
+  }catch(e){zoomer.style.zoom=prev;alert('이미지를 만들지 못했어요. 다시 시도해 주세요.')}
+  btn.disabled=false;btn.textContent='🖼️ 이미지로 저장';
+};
+</script>
+</body>
+</html>
